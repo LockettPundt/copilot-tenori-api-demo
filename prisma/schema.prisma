@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@localhost:5432/tenori_dom_local"
+}
+
+model Setting {
+  id         Int       @id @default(autoincrement())
+  name       String
+  value      Json
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  @@map("settings")
+}
